@@ -6,10 +6,31 @@ import HistoryList from "./_components/HistoryList";
 import {useState} from "react";
 
 
-const props = {
+const propsCarNumber = {
     name: 'file',
     multiple: false,
     action: `${process.env.REACT_APP_ML_HOST}/recognitors/car_number/`,
+    onChange(info) {
+        const {status} = info.file;
+        if (status !== 'uploading') {
+            console.log(info.file, info.fileList);
+        }
+        if (status === 'done') {
+            message.success(`${info.file.name} file uploaded successfully.`);
+        } else if (status === 'error') {
+            message.error(`${info.file.name} file upload failed.`);
+        }
+    },
+    onDrop(e) {
+        console.log('Dropped files', e.dataTransfer.files);
+    }
+}
+
+
+const propsRejectPerc = {
+    name: 'file',
+    multiple: false,
+    action: `${process.env.REACT_APP_ML_HOST}/recognitors/buckwheat/`,
     onChange(info) {
         const {status} = info.file;
         if (status !== 'uploading') {
@@ -30,7 +51,7 @@ const CheckRejectPerc = () => {
     return (
 
         <Card className="check-tool">
-            <Upload {...props} className="upload">
+            <Upload {...propsRejectPerc} className="upload">
                 <UploadOutlined className="upload-icon"/>
                 <Meta
                     title="Проверить процент брака вручную"
@@ -45,7 +66,7 @@ const CheckRejectPerc = () => {
 const CheckCarNumber = () => {
     return (
         <Card className="check-tool">
-            <Upload {...props} className="upload">
+            <Upload {...propsCarNumber} className="upload">
                 <UploadOutlined className="upload-icon"/>
                 <Meta
                     title="Занести поставку в отчет по автомобильному номеру"
