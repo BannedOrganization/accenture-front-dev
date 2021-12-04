@@ -1,0 +1,57 @@
+.SideMenu {
+  width: 5rem;
+  height: 100%;
+  position: fixed;
+  top: 4.5rem;
+  align-content: space-between;
+  background-color: #fff;
+  box-shadow: 8px 0 16px rgba(0, 0, 0, 0.1);
+
+  .profile-info {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+
+    span {
+      margin-right: 1rem;
+    }
+  }
+
+  .menu {
+    width: 100%;
+    height: 72%;
+    display: flex;
+    justify-content: center;
+
+    li {
+      border-radius: 4px;
+      height: 4rem;
+
+      &::after {
+        content: none;
+      }
+    }
+
+    span {
+      transform: scale(1.8);
+    }
+  }
+
+  .logout {
+    margin: 1rem;
+    background-color: #f9f9f9;
+    width: 3rem;
+
+    .ant-card-body {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      svg {
+        width: 100px;
+      }
+    }
+  }
+
+}
