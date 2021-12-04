@@ -7,7 +7,6 @@ import Header from "../Header";
 const PageContainer = ({children}) => {
     return (
         <div className="PageContainer">
-            <Header/>
             <div className="content">
                 <SideMenu/>
                 <div className="children">
