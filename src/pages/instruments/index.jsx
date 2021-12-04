@@ -9,7 +9,7 @@ import {useState} from "react";
 const props = {
     name: 'file',
     multiple: false,
-    action: 'https://2f45-178-66-208-236.ngrok.io/recognitors/car_number/',
+    action: `${process.env.REACT_APP_ML_HOST}/recognitors/car_number/`,
     onChange(info) {
         const {status} = info.file;
         if (status !== 'uploading') {
