@@ -25,9 +25,9 @@ const HistoryList = () => {
             header={
                 <HistoryListHeader/>
             }
-            renderItem={item => (
+            renderItem={(item, id) => (
                 <List.Item
-                    key={item.title}
+                    key={id}
                     actions={[
                         <Button>Связаться с сотрудником</Button>,
                         <Button type="primary">Изменить</Button>,

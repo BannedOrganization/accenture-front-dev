@@ -1,8 +1,9 @@
-import {Card, message, Upload} from "antd";
+import {Button, Card, message, Upload} from "antd";
 import Meta from "antd/es/card/Meta";
 import "./style.scss"
 import {UploadOutlined} from "@ant-design/icons";
 import HistoryList from "./_components/HistoryList";
+import {useState} from "react";
 
 
 const props = {
@@ -53,6 +54,65 @@ const CheckCarNumber = () => {
             </Upload>
         </Card>
 
+    )
+}
+
+
+
+const Modal = () => {
+    const [loading, setLoading] = useState(false)
+    const [visible, setVisible] = useState(false)
+
+    const showModal = () => {
+        setVisible(true)
+    };
+
+    const handleOk = () => {
+        setLoading(true);
+        setTimeout(() => {
+            this.setState({ loading: false, visible: false });
+        }, 3000);
+    };
+
+    const handleCancel = () => {
+        setVisible(false);
+    };
+
+    return (
+        <>
+            <Button type="primary" onClick={showModal}>
+                Open Modal with customized footer
+            </Button>
+            <Modal
+                visible={visible}
+                title="Title"
+                onOk={handleOk}
+                onCancel={handleCancel}
+                footer={[
+                    <Button key="back" onClick={handleCancel}>
+                        Return
+                    </Button>,
+                    <Button key="submit" type="primary" loading={loading} onClick={handleOk}>
+                        Submit
+                    </Button>,
+                    <Button
+                        key="link"
+                        href="https://google.com"
+                        type="primary"
+                        loading={loading}
+                        onClick={handleOk}
+                    >
+                        Search on Google
+                    </Button>,
+                ]}
+            >
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+            </Modal>
+        </>
     )
 }
 

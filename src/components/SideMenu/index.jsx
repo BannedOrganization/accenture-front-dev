@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Card, Menu} from 'antd';
+import {Avatar, Card, Menu} from 'antd';
 import {AppstoreAddOutlined, CarOutlined, LogoutOutlined} from "@ant-design/icons";
 import "./style.scss"
 import {Link} from "react-router-dom";
@@ -19,16 +19,6 @@ const Logout = () => {
 
 
 const SideMenu = () => {
-    const [visible, setVisible] = useState(true);
-
-
-    const showSideMenu = () => {
-        setVisible(true);
-    };
-
-    const closeSideMenu = () => {
-        setVisible(false);
-    };
     return (
         <div className="SideMenu">
             <Menu
